@@ -1,0 +1,38 @@
+{
+    "experiment": {
+        "seed": 0,
+        "meta_train": True,
+        "meta_train_size": 20,
+        "num_meta_tasks": 20,
+        "train_size": 100,  # 100,
+        "test_size": 200,
+        "leaked_data_fraction": 0.8,
+        "env_config": {
+            "name": "point_env_goal",
+            "arena_size": 5.0,
+            "arena_dim": 2,
+            # "target_pos": {0: [3, -2]},
+        },
+        "reward_model_config": {
+            "name": "fpacoh_learned_gp",
+            "model_name": "fpacoh",
+            "config": {
+                "learning_mode": "both",
+                "mean_module": "NN",
+                "covar_module": "NN",
+                "weight_decay": 1e-2,
+                "feature_dim": 2,
+                "num_iter_fit": 5000,
+                "lr": 0.01,
+                "lr_decay": 1.0,
+                "prior_lengthscale": 0.5,
+                "prior_outputscale": 1,
+                "num_samples_kl": 20,
+                "prior_factor": 0.05,
+            },
+        },
+    },
+    "prefix": "fpacoh_learnt",
+    "name": "fpacoh_GP_leaked_0.8",
+    "num_runs": 50,
+}

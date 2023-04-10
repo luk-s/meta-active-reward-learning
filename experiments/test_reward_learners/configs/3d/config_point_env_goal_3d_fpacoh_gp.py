@@ -1,0 +1,38 @@
+{
+    "experiment": {
+        "seed": 0,
+        "meta_train": True,
+        "meta_train_size": 20,
+        "num_meta_tasks": 20,
+        "num_meta_valid_tasks": 20,
+        "train_size": 100,  # 100,
+        "test_size": 200,
+        "env_config": {
+            "name": "point_env_goal_3d",
+            "arena_size": 5.0,
+            "arena_dim": 3,
+            # "target_pos": {0: [3, -2]},
+        },
+        "reward_model_config": {
+            "name": "fpacoh_learned_gp",
+            "model_name": "fpacoh",
+            "config": {
+                "learning_mode": "both",
+                "mean_module": "NN",
+                "covar_module": "NN",
+                "weight_decay": 1e-4,
+                "feature_dim": 3,
+                "num_iter_fit": 10000,
+                "lr": 0.001,
+                "lr_decay": 1.0,
+                "prior_lengthscale": 0.7,
+                "prior_outputscale": 0.5,
+                "num_samples_kl": 20,
+                "prior_factor": 0.1,
+            },
+        },
+    },
+    "prefix": "fpacoh",
+    "name": "fpacoh_GP_point_env",
+    "num_runs": 50,
+}
